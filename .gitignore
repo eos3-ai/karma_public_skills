@@ -1,5 +1,6 @@
 # Claude Code 本地配置
 /.claude/
+tmpclaude-*-cwd
 
 # 操作系统文件
 .DS_Store
