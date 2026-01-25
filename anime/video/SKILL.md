@@ -18,11 +18,22 @@ description: 动漫分镜视频生成。基于分镜列表和定妆图，调用V
 
 ## Veo API 配置
 
+使用环境变量配置（请先在项目根目录创建 `.env` 文件）：
+
+```bash
+TOKENCLOUD_API_BASE_URL=https://llm.tokencloud.ai
+TOKENCLOUD_API_KEY=sk-your-api-key-here
+TOKENCLOUD_MODEL=google/veo-3.1-generate-preview
 ```
-API_BASE: https://llm.tokencloud.ai
-API_KEY: sk-RPo8Q8Lf9_SKoNMSjo5DNA
-MODEL: google/veo-3.1-generate-preview
-```
+
+**获取 API 密钥**:
+1. 访问 TokenCloud 服务平台
+2. 生成新的 API 密钥
+3. 将密钥保存到 `.env` 文件中
+
+⚠️ **安全提示**:
+- 切勿将 `.env` 文件提交到 Git 仓库
+- 使用 `.env.example` 作为配置模板
 
 ## 执行流程
 
@@ -52,14 +63,14 @@ camera: {镜头运动}
 **Step 1: 发起生成请求**
 
 ```bash
-curl -X POST 'https://llm.tokencloud.ai/videos' \
+curl -X POST "${TOKENCLOUD_API_BASE_URL}/videos" \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer sk-RPo8Q8Lf9_SKoNMSjo5DNA' \
-  -d '{
-    "model": "google/veo-3.1-generate-preview",
-    "prompt": "{视频提示词}",
-    "seconds": "{时长}"
-  }'
+  -H "Authorization: Bearer ${TOKENCLOUD_API_KEY}" \
+  -d "{
+    \"model\": \"${TOKENCLOUD_MODEL}\",
+    \"prompt\": \"{视频提示词}\",
+    \"seconds\": \"{时长}\"
+  }"
 ```
 
 **返回示例**：
@@ -73,8 +84,8 @@ curl -X POST 'https://llm.tokencloud.ai/videos' \
 **Step 2: 轮询查询状态**
 
 ```bash
-curl -X GET 'https://llm.tokencloud.ai/v1/videos/{video_id}' \
-  -H 'x-litellm-api-key: sk-RPo8Q8Lf9_SKoNMSjo5DNA'
+curl -X GET "${TOKENCLOUD_API_BASE_URL}/v1/videos/{video_id}" \
+  -H "x-litellm-api-key: ${TOKENCLOUD_API_KEY}"
 ```
 
 等待 `status` 变为 `completed`。
@@ -82,8 +93,8 @@ curl -X GET 'https://llm.tokencloud.ai/v1/videos/{video_id}' \
 **Step 3: 下载视频**
 
 ```bash
-curl -X GET 'https://llm.tokencloud.ai/v1/videos/{video_id}/content' \
-  -H 'x-litellm-api-key: sk-RPo8Q8Lf9_SKoNMSjo5DNA' \
+curl -X GET "${TOKENCLOUD_API_BASE_URL}/v1/videos/{video_id}/content" \
+  -H "x-litellm-api-key: ${TOKENCLOUD_API_KEY}" \
   -o '{输出路径}'
 ```
 
@@ -94,23 +105,29 @@ curl -X GET 'https://llm.tokencloud.ai/v1/videos/{video_id}/content' \
 为每个镜头执行以下脚本：
 
 ```bash
+#!/bin/bash
+# 加载环境变量
+if [ -f .env ]; then
+  export $(cat .env | grep -v '^#' | xargs)
+fi
+
 # 1. 发起生成请求
-RESPONSE=$(curl -s -X POST 'https://llm.tokencloud.ai/videos' \
+RESPONSE=$(curl -s -X POST "${TOKENCLOUD_API_BASE_URL}/videos" \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer sk-RPo8Q8Lf9_SKoNMSjo5DNA' \
-  -d '{
-    "model": "google/veo-3.1-generate-preview",
-    "prompt": "'"${PROMPT}"'",
-    "seconds": "'"${DURATION}"'"
-  }')
+  -H "Authorization: Bearer ${TOKENCLOUD_API_KEY}" \
+  -d "{
+    \"model\": \"${TOKENCLOUD_MODEL}\",
+    \"prompt\": \"${PROMPT}\",
+    \"seconds\": \"${DURATION}\"
+  }")
 
 # 2. 提取 video_id
 VIDEO_ID=$(echo $RESPONSE | jq -r '.id')
 
 # 3. 轮询等待完成
 while true; do
-  STATUS=$(curl -s -X GET "https://llm.tokencloud.ai/v1/videos/${VIDEO_ID}" \
-    -H 'x-litellm-api-key: sk-RPo8Q8Lf9_SKoNMSjo5DNA' | jq -r '.status')
+  STATUS=$(curl -s -X GET "${TOKENCLOUD_API_BASE_URL}/v1/videos/${VIDEO_ID}" \
+    -H "x-litellm-api-key: ${TOKENCLOUD_API_KEY}" | jq -r '.status')
 
   if [ "$STATUS" = "completed" ]; then
     break
@@ -120,8 +137,8 @@ while true; do
 done
 
 # 4. 下载视频
-curl -X GET "https://llm.tokencloud.ai/v1/videos/${VIDEO_ID}/content" \
-  -H 'x-litellm-api-key: sk-RPo8Q8Lf9_SKoNMSjo5DNA' \
+curl -X GET "${TOKENCLOUD_API_BASE_URL}/v1/videos/${VIDEO_ID}/content" \
+  -H "x-litellm-api-key: ${TOKENCLOUD_API_KEY}" \
   -o "${OUTPUT_PATH}"
 ```
 
