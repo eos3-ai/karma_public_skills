@@ -1,0 +1,146 @@
+{
+  "version": "1.0",
+  "exportedAt": "2026-01-26T09:47:20.161Z",
+  "skillName": "government-document-assistant",
+  "ability": {
+    "core": {
+      "name": "government-document-assistant",
+      "displayName": "政务文书助手",
+      "description": "专业的政务文书撰写助手，严格遵循《党政机关公文处理工作条例》和《党政机关公文格式》国家标准（GB/T 9704-2012），支持心得体会、通知、讲话稿、工作报告、请示、工作方案等6种常用文书类型的撰写。提供标准公文格式、规范政务语言、完整写作指导，支持Word、PDF、Markdown多种格式输出。当用户说'写通知'、'起草讲话稿'、'写工作报告'、'撰写请示'、'制定工作方案'、'写心得体会'时触发。",
+      "version": "1.0.0",
+      "author": "",
+      "categories": [],
+      "skillTypes": [],
+      "license": "MIT",
+      "compatibility": "适用于各级党政机关、事业单位、国有企业等需要撰写规范政务文书的场景。基于Python 3.9+环境，支持Linux、Windows、macOS操作系统。输出文档兼容Microsoft Word 2016+、Adobe Acrobat Reader、主流Markdown编辑器。",
+      "metadata": {
+        "homepage": [],
+        "repository": [],
+        "tags": [
+          "政务",
+          "公文",
+          "文书",
+          "党政机关",
+          "规范写作"
+        ],
+        "language": "Python"
+      },
+      "allowedTools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "WebSearch"
+      ],
+      "activation": {
+        "keywords": [],
+        "patterns": [],
+        "nlu": "当用户需要撰写符合党政机关公文规范的各类政务文书，包括通知、讲话稿、工作报告、请示、工作方案、心得体会等文件时触发"
+      }
+    },
+    "reference": {
+      "mainContent": "# 政务文书助手参考文档",
+      "resources": [
+        {
+          "path": "resources/terminology-dictionary.md",
+          "name": "terminology-dictionary.md",
+          "description": "资源: terminology-dictionary.md",
+          "content": "# 政务术语词典\n\n## 时政理论类\n\n### 学习贯彻\n- 深入学习贯彻\n- 认真学习领会\n- 全面贯彻落实\n- 坚决贯彻执行\n\n### 思想理念\n- 牢固树立...意识\n- 切实增强...观念\n- 始终坚持...导向\n- 牢牢把握...原则\n\n### 工作要求\n- 坚持稳中求进工作总基调\n- 统筹推进...协调发展\n- 扎实做好...工作\n- 持续深化...改革\n\n## 工作推进类\n\n### 部署安排\n- 精心组织、周密部署\n- 统筹安排、协调推进\n- 分类指导、因地制宜\n- 上下联动、左右协同\n\n### 执行落实\n- 压实主体责任\n- 狠抓工作落实\n- 强化督查考核\n- 确保落地见效\n\n### 工作方法\n- 问题导向、目标导向、结果导向\n- 点面结合、以点带面\n- 试点先行、稳步推进\n- 重点突破、整体提升\n\n## 成效评价类\n\n### 正面成效\n- 取得显著成效\n- 成果丰硕\n- 成绩斐然\n- 亮点纷呈\n- 稳步推进\n- 持续向好\n- 不断深化\n\n### 问题表述\n- 仍然存在...问题\n- 亟待解决\n- 有待加强\n- 不容忽视\n- 短板弱项\n- 薄弱环节\n\n## 目标任务类\n\n### 总体目标\n- 全面建成...\n- 基本实现...\n- 显著提升...\n- 明显改善...\n\n### 具体指标\n- 确保...达到...标准\n- 力争...突破...\n- 实现...增长...%\n- 控制在...以内\n\n## 保障措施类\n\n### 组织保障\n- 加强组织领导\n- 健全工作机制\n- 强化责任落实\n- 严格督查问责\n\n### 资源保障\n- 加大资金投入\n- 强化人才支撑\n- 完善政策体系\n- 优化资源配置"
+        },
+        {
+          "path": "resources/format-standards.md",
+          "name": "format-standards.md",
+          "description": "资源: format-standards.md",
+          "content": "# 党政机关公文格式标准（GB/T 9704-2012）\n\n## 一、公文用纸\n\n### 幅面尺寸\n- 采用国际标准A4型纸\n- 尺寸：210mm×297mm\n\n### 页边距\n- 上边距：37mm±1mm\n- 下边距：35mm±1mm\n- 左边距：28mm±1mm\n- 右边距：26mm±1mm\n\n### 装订位置\n- 左侧装订\n- 装订线位置距左边缘5mm-10mm\n\n## 二、字体字号\n\n### 标题\n- 字体：2号小标宋体\n- 颜色：红色（套红印刷）或黑色\n- 位置：居中排列\n\n### 主送机关\n- 字体：3号仿宋GB2312\n- 位置：标题下空一行，顶格\n\n### 正文\n- 字体：3号仿宋GB2312\n- 行间距：固定值28磅\n- 字间距：标准\n\n### 附件说明\n- 字体：3号仿宋GB2312\n- 位置：正文下空一行，左空二字\n\n### 发文机关署名\n- 字体：3号仿宋GB2312或楷体\n- 位置：右空四字\n\n### 成文日期\n- 字体：3号仿宋GB2312\n- 格式：汉字，如'二〇二六年一月二十六日'\n- 位置：右空四字，发文机关下\n\n### 附注\n- 字体：3号仿宋GB2312\n- 位置：成文日期下空一行，居左空二字\n\n### 页码\n- 字体：4号半角Times New Roman\n- 位置：版心下边缘之下，居中\n\n## 三、层级标题\n\n### 第一层\n- 格式：一、二、三、\n- 字体：3号黑体\n\n### 第二层\n- 格式：（一）（二）（三）\n- 字体：3号楷体\n\n### 第三层\n- 格式：1. 2. 3.\n- 字体：3号仿宋GB2312\n\n### 第四层\n- 格式：（1）（2）（3）\n- 字体：3号仿宋GB2312\n\n## 四、特殊格式要素\n\n### 发文字号\n- 位置：版头部分，居中\n- 格式：机关代字〔年份〕第×号\n- 字体：3号仿宋GB2312\n\n### 签发人\n- 位置：发文字号右侧\n- 格式：签发人：XXX\n- 字体：3号仿宋GB2312\n\n### 抄送机关\n- 位置：主题词下空一行\n- 格式：抄送：XXX、XXX\n- 字体：4号仿宋GB2312\n\n### 印发机关和印发日期\n- 位置：抄送机关下空一行\n- 格式：XX办公室XXXX年X月X日印发\n- 字体：4号仿宋GB2312"
+        }
+      ]
+    },
+    "troubleshooting": {
+      "changelog": [
+        {
+          "version": "1.0.0",
+          "date": "2026-01-26",
+          "type": "added",
+          "description": "初始版本发布，支持6种常用政务文书类型的撰写，严格遵循GB/T 9704-2012国家标准"
+        }
+      ],
+      "debugGuide": "# 调试指南"
+    },
+    "scripts": {
+      "scripts": [
+        {
+          "path": "scripts/generate_document.py",
+          "name": "generate_document.py",
+          "description": "脚本: generate_document.py",
+          "language": "python",
+          "content": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\nimport sys\nimport json\nfrom datetime import datetime\nfrom typing import Dict, Any\n\nclass GovernmentDocumentGenerator:\n    def __init__(self):\n        self.doc_types = {\n            'notice': '通知',\n            'speech': '讲话稿',\n            'report': '工作报告',\n            'request': '请示',\n            'plan': '工作方案',\n            'reflection': '心得体会'\n        }\n    \n    def generate_title(self, doc_type: str, subject: str, issuer: str = '') -> str:\n        if doc_type == 'notice':\n            return f'{issuer}关于{subject}的通知' if issuer else f'关于{subject}的通知'\n        elif doc_type == 'speech':\n            return f'在{subject}上的讲话'\n        elif doc_type == 'report':\n            return f'{issuer}关于{subject}的报告' if issuer else f'关于{subject}的报告'\n        elif doc_type == 'request':\n            return f'{issuer}关于{subject}的请示' if issuer else f'关于{subject}的请示'\n        elif doc_type == 'plan':\n            return f'{subject}工作方案'\n        elif doc_type == 'reflection':\n            return f'{subject}心得体会'\n        else:\n            return subject\n    \n    def format_date(self, date_obj: datetime = None) -> str:\n        if date_obj is None:\n            date_obj = datetime.now()\n        year = date_obj.year\n        month = date_obj.month\n        day = date_obj.day\n        cn_nums = ['〇', '一', '二', '三', '四', '五', '六', '七', '八', '九']\n        year_cn = ''.join([cn_nums[int(d)] for d in str(year)])\n        month_cn = ''.join([cn_nums[int(d)] for d in str(month)])\n        day_cn = ''.join([cn_nums[int(d)] for d in str(day)])\n        return f'{year_cn}年{month_cn}月{day_cn}日'\n    \n    def generate_notice_structure(self, data: Dict[str, Any]) -> str:\n        title = self.generate_title('notice', data.get('subject', ''), data.get('issuer', ''))\n        recipient = data.get('recipient', '各有关单位')\n        content = data.get('content', '')\n        issuer = data.get('issuer', 'XX单位')\n        date = self.format_date()\n        \n        structure = f'{title}\\n\\n{recipient}：\\n\\n{content}\\n\\n特此通知。\\n\\n{issuer}\\n{date}'\n        return structure\n    \n    def generate_speech_structure(self, data: Dict[str, Any]) -> str:\n        title = self.generate_title('speech', data.get('subject', ''))\n        salutation = data.get('salutation', '同志们')\n        content = data.get('content', '')\n        \n        structure = f'{title}\\n\\n{salutation}：\\n\\n{content}\\n\\n谢谢大家！'\n        return structure\n    \n    def generate(self, doc_type: str, data: Dict[str, Any]) -> Dict[str, Any]:\n        result = {\n            'success': True,\n            'doc_type': self.doc_types.get(doc_type, doc_type),\n            'content': '',\n            'metadata': {\n                'generated_at': datetime.now().isoformat(),\n                'standard': 'GB/T 9704-2012'\n            }\n        }\n        \n        try:\n            if doc_type == 'notice':\n                result['content'] = self.generate_notice_structure(data)\n            elif doc_type == 'speech':\n                result['content'] = self.generate_speech_structure(data)\n            else:\n                result['content'] = f'{self.generate_title(doc_type, data.get(\"subject\", \"\"), data.get(\"issuer\", \"\"))}\\n\\n{data.get(\"content\", \"\")}'\n        except Exception as e:\n            result['success'] = False\n            result['error'] = str(e)\n        \n        return result\n\ndef main():\n    if len(sys.argv) < 2:\n        print(json.dumps({'error': '缺少参数：文书类型'}, ensure_ascii=False))\n        sys.exit(1)\n    \n    doc_type = sys.argv[1]\n    data = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}\n    \n    generator = GovernmentDocumentGenerator()\n    result = generator.generate(doc_type, data)\n    \n    print(json.dumps(result, ensure_ascii=False, indent=2))\n\nif __name__ == '__main__':\n    main()"
+        },
+        {
+          "path": "scripts/export_formats.py",
+          "name": "export_formats.py",
+          "description": "脚本: export_formats.py",
+          "language": "python",
+          "content": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\nimport sys\nimport json\nfrom pathlib import Path\n\ntry:\n    from docx import Document\n    from docx.shared import Pt, RGBColor\n    from docx.enum.text import WD_ALIGN_PARAGRAPH\n    DOCX_AVAILABLE = True\nexcept ImportError:\n    DOCX_AVAILABLE = False\n\nclass DocumentExporter:\n    def __init__(self):\n        self.supported_formats = ['md', 'docx', 'pdf']\n    \n    def export_markdown(self, content: str, output_path: str) -> bool:\n        try:\n            with open(output_path, 'w', encoding='utf-8') as f:\n                f.write(content)\n            return True\n        except Exception as e:\n            print(f'Markdown导出失败：{e}')\n            return False\n    \n    def export_word(self, content: str, title: str, output_path: str) -> bool:\n        if not DOCX_AVAILABLE:\n            print('未安装python-docx库，无法导出Word格式')\n            return False\n        \n        try:\n            doc = Document()\n            \n            title_para = doc.add_paragraph(title)\n            title_para.alignment = WD_ALIGN_PARAGRAPH.CENTER\n            title_run = title_para.runs[0]\n            title_run.font.size = Pt(22)\n            title_run.font.bold = True\n            title_run.font.name = '方正小标宋简体'\n            \n            for line in content.split('\\n'):\n                if line.strip():\n                    para = doc.add_paragraph(line)\n                    para_run = para.runs[0]\n                    para_run.font.size = Pt(16)\n                    para_run.font.name = '仿宋_GB2312'\n            \n            doc.save(output_path)\n            return True\n        except Exception as e:\n            print(f'Word导出失败：{e}')\n            return False\n    \n    def export(self, content: str, format_type: str, output_path: str, title: str = '') -> Dict[str, Any]:\n        result = {\n            'success': False,\n            'format': format_type,\n            'output_path': output_path\n        }\n        \n        if format_type not in self.supported_formats:\n            result['error'] = f'不支持的格式：{format_type}'\n            return result\n        \n        Path(output_path).parent.mkdir(parents=True, exist_ok=True)\n        \n        if format_type == 'md':\n            result['success'] = self.export_markdown(content, output_path)\n        elif format_type == 'docx':\n            result['success'] = self.export_word(content, title, output_path)\n        elif format_type == 'pdf':\n            result['error'] = 'PDF导出功能开发中，建议先导出Word再转换为PDF'\n        \n        return result\n\ndef main():\n    if len(sys.argv) < 4:\n        print(json.dumps({'error': '参数不足：需要内容、格式、输出路径'}, ensure_ascii=False))\n        sys.exit(1)\n    \n    content = sys.argv[1]\n    format_type = sys.argv[2]\n    output_path = sys.argv[3]\n    title = sys.argv[4] if len(sys.argv) > 4 else ''\n    \n    exporter = DocumentExporter()\n    result = exporter.export(content, format_type, output_path, title)\n    \n    print(json.dumps(result, ensure_ascii=False, indent=2))\n\nif __name__ == '__main__':\n    main()"
+        }
+      ]
+    },
+    "templates": {
+      "templates": [
+        {
+          "path": "templates/notice.md",
+          "name": "notice.md",
+          "description": "模板: notice.md",
+          "content": "{{title}}\n\n{{recipient}}：\n\n{{opening}}\n\n{{main_content}}\n\n{{requirements}}\n\n特此通知。\n\n{{issuer}}\n{{date}}"
+        },
+        {
+          "path": "templates/speech.md",
+          "name": "speech.md",
+          "description": "模板: speech.md",
+          "content": "{{title}}\n\n{{salutation}}：\n\n{{opening_remarks}}\n\n一、{{section1_title}}\n\n{{section1_content}}\n\n二、{{section2_title}}\n\n{{section2_content}}\n\n三、{{section3_title}}\n\n{{section3_content}}\n\n{{closing_remarks}}\n\n谢谢大家！"
+        },
+        {
+          "path": "templates/report.md",
+          "name": "report.md",
+          "description": "模板: report.md",
+          "content": "{{title}}\n\n{{recipient}}：\n\n{{opening}}\n\n一、工作开展情况\n\n{{work_overview}}\n\n二、取得成效\n\n{{achievements}}\n\n三、存在问题\n\n{{problems}}\n\n四、下步工作打算\n\n{{next_steps}}\n\n特此报告。\n\n{{issuer}}\n{{date}}"
+        },
+        {
+          "path": "templates/request.md",
+          "name": "request.md",
+          "description": "模板: request.md",
+          "content": "{{title}}\n\n{{recipient}}：\n\n{{background}}\n\n{{reasons}}\n\n{{specific_request}}\n\n{{expected_result}}\n\n妥否，请批示。\n\n{{issuer}}\n{{date}}"
+        },
+        {
+          "path": "templates/plan.md",
+          "name": "plan.md",
+          "description": "模板: plan.md",
+          "content": "{{title}}\n\n一、指导思想\n\n{{guiding_principles}}\n\n二、目标任务\n\n{{objectives}}\n\n三、主要内容\n\n{{main_activities}}\n\n四、实施步骤\n\n{{implementation_steps}}\n\n五、保障措施\n\n（一）组织保障\n{{organizational_measures}}\n\n（二）资金保障\n{{financial_measures}}\n\n（三）督查考核\n{{supervision_measures}}\n\n{{issuer}}\n{{date}}"
+        },
+        {
+          "path": "templates/reflection.md",
+          "name": "reflection.md",
+          "description": "模板: reflection.md",
+          "content": "{{title}}\n\n{{opening}}\n\n一、学习内容回顾\n\n{{learning_summary}}\n\n二、个人感悟体会\n\n{{personal_insights}}\n\n三、今后努力方向\n\n{{future_plans}}\n\n{{author}}\n{{date}}"
+        }
+      ]
+    },
+    "assets": {
+      "assets": [
+        {
+          "path": "assets/config.json",
+          "name": "config.json",
+          "description": "资源文件: config.json",
+          "type": "data",
+          "content": "{\n  \"version\": \"1.0.0\",\n  \"standard\": \"GB/T 9704-2012\",\n  \"default_format\": \"docx\",\n  \"font_settings\": {\n    \"title\": {\"name\": \"方正小标宋简体\", \"size\": 22, \"bold\": true},\n    \"body\": {\"name\": \"仿宋_GB2312\", \"size\": 16},\n    \"heading1\": {\"name\": \"黑体\", \"size\": 16},\n    \"heading2\": {\"name\": \"楷体\", \"size\": 16}\n  },\n  \"page_settings\": {\n    \"size\": \"A4\",\n    \"margins\": {\"top\": 37, \"bottom\": 35, \"left\": 28, \"right\": 26},\n    \"line_spacing\": 28\n  },\n  \"supported_doc_types\": [\"notice\", \"speech\", \"report\", \"request\", \"plan\", \"reflection\"],\n  \"output_formats\": [\"md\", \"docx\", \"pdf\"]\n}"
+        },
+        {
+          "path": "assets/terminology.json",
+          "name": "terminology.json",
+          "description": "资源文件: terminology.json",
+          "type": "data",
+          "content": "{\n  \"opening_phrases\": {\n    \"notice\": [\"根据...精神\", \"为贯彻落实...\", \"经研究决定\", \"按照...要求\"],\n    \"report\": [\"现将...情况报告如下\", \"...工作已完成\", \"根据安排\"],\n    \"request\": [\"因...需要\", \"为解决...问题\", \"鉴于...\", \"为进一步...\"],\n    \"plan\": [\"为确保...\", \"按照...要求\", \"结合实际\"]\n  },\n  \"closing_phrases\": {\n    \"notice\": [\"特此通知\", \"请认真贯彻执行\", \"请遵照执行\"],\n    \"report\": [\"特此报告\", \"以上报告如无不妥请批示\", \"专此报告\"],\n    \"request\": [\"妥否请批示\", \"当否请指示\", \"请予审批\"],\n    \"plan\": [\"特制定本方案\"]\n  },\n  \"common_terms\": [\n    \"深入学习贯彻\", \"坚决贯彻落实\", \"牢固树立\", \"切实增强\",\n    \"统筹推进\", \"协调联动\", \"压实责任\", \"狠抓落实\",\n    \"取得显著成效\", \"稳步推进\", \"持续向好\", \"成果丰硕\",\n    \"仍然存在\", \"亟待解决\", \"有待加强\", \"不容忽视\"\n  ]\n}"
+        }
+      ]
+    }
+  }
+}
