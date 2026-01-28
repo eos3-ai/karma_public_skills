@@ -2,7 +2,7 @@
 name: government-document-assistant
 description: "专业的政务文书撰写助手，严格遵循《党政机关公文处理工作条例》和《党政机关公文格式》国家标准（GB/T 9704-2012），支持心得体会、通知、讲话稿、工作报告、请示、工作方案等6种常用文书类型的撰写。提供标准公文格式、规范政务语言、完整写作指导，支持Word、PDF、Markdown多种格式输出。当用户说'写通知'、'起草讲话稿'、'写工作报告'、'撰写请示'、'制定工作方案'、'写心得体会'时触发。 当用户需要撰写符合党政机关公文规范的各类政务文书，包括通知、讲话稿、工作报告、请示、工作方案、心得体会等文件时触发"
 license: MIT
-compatibility: 适用于各级党政机关、事业单位、国有企业等需要撰写规范政务文书的场景。基于Python 3.9+环境，支持Linux、Windows、macOS操作系统。输出文档兼容Microsoft Word 2016+、Adobe Acrobat Reader、主流Markdown编辑器。
+compatibility: 适用于各级党政机关、事业单位、国有企业等需要撰写规范政务文书的场景。
 metadata:
   homepage:
   repository:
@@ -39,11 +39,6 @@ allowed-tools:
 
 - `resources/terminology-dictionary.md`: 资源: terminology-dictionary.md
 - `resources/format-standards.md`: 资源: format-standards.md
-
-### 脚本
-
-- `scripts/generate_document.py`: 脚本: generate_document.py
-- `scripts/export_formats.py`: 脚本: export_formats.py
 
 ### 模板
 
